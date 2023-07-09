@@ -9,12 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloTraceV1 {
 
-    private static final String START_PREFIX = "-->";//시작할때
-    private static final String COMPLETE_PREFIX = "<--";//정상 complete 시
-    private static final String EX_PREFIX = "<X-"; //예외는 x 를 표기하도록
+    private static final String START_PREFIX = "-->";
+    private static final String COMPLETE_PREFIX = "<--";
+    private static final String EX_PREFIX = "<X-";
 
-    //로그 시작, 로그 메세지를 파라미터로 받아서 시작로그 출력, 응답결과로 로그의 상태를 나타내는 traceStatus 반환
-    public TraceStatus begin(String message) {//log를 찍고 trace
+    public TraceStatus begin(String message) {
         TraceId traceId = new TraceId();
         Long startTimeMs = System.currentTimeMillis();
         log.info("[{}] {}{}", traceId.getId(), addSpace(START_PREFIX, traceId.getLevel()), message);
