@@ -3,10 +3,8 @@ package com.geunskoo.springadvance.trace.logtrace;
 import com.geunskoo.springadvance.trace.TraceId;
 import com.geunskoo.springadvance.trace.TraceStatus;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
 public class FieldLogTrace implements LogTrace {
 
     private static final String START_PREFIX = "-->";
@@ -28,7 +26,7 @@ public class FieldLogTrace implements LogTrace {
         if (traceIdHolder == null) {
             traceIdHolder = new TraceId();
         } else {
-            traceIdHolder = traceIdHolder.createNextID();
+            traceIdHolder = traceIdHolder.createNextId();
         }
     }
 
