@@ -2,6 +2,7 @@ package com.geunskoo.springproxy;
 
 import com.geunskoo.springproxy.app.config.AppV1Config;
 import com.geunskoo.springproxy.app.config.AppV2Config;
+import com.geunskoo.springproxy.app.config.v1_proxy.ConcreteProxyConfig;
 import com.geunskoo.springproxy.app.config.v1_proxy.InterfaceProxyConfig;
 import com.geunskoo.springproxy.trace.logtrace.LogTrace;
 import com.geunskoo.springproxy.trace.logtrace.ThreadLocalLogTrace;
@@ -12,8 +13,9 @@ import org.springframework.context.annotation.Import;
 
 //@Import(AppV1Config.class)
 //@Import({AppV1Config.class, AppV2Config.class})
-@Import(InterfaceProxyConfig.class)
-@SpringBootApplication(scanBasePackages = "com.geunskoo.springproxy.app.interface_proxy")
+//@Import(InterfaceProxyConfig.class)
+@Import(ConcreteProxyConfig.class)
+@SpringBootApplication(scanBasePackages = "com.geunskoo.springproxy.app.config.v1_proxy")
 public class SpringProxyApplication {
 
     public static void main(String[] args) {
